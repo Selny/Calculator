@@ -1,0 +1,111 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="Calculator" ResizeMode="CanMinimize"  Height="539" Width="333.5">
+
+    <Window.Resources>
+        <Style x:Key="btnStyle1" TargetType="Button">
+            <Setter Property="Height" Value="52"/>
+            <Setter Property="Width" Value="78"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontFamily" Value="Segoe UI Semilight"/>
+            <Setter Property="Background" Value="#fafafa"/>
+        </Style>
+        <Style x:Key="btnStyle2" TargetType="Button">
+            <Setter Property="Height" Value="52"/>
+            <Setter Property="Width" Value="78"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontFamily" Value="Segoe UI Semibold"/>
+            <Setter Property="Background" Value="#ffffff"/>
+        </Style>
+        <Style x:Key="btnStyle3" TargetType="Button">
+            <Setter Property="Width" Value="51.5"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontFamily" Value="Segoe UI Semibold"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid Background="#f0f0f0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.54*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Button Content="≡" FontFamily="Segoue UI Semibold" FontSize="25" 
+                         Background="Transparent" Width="30" BorderThickness="0" Margin="-280, 4, 0, 0"/>
+                <Label Content="Standard" FontFamily="Segoe UI Semibold" FontSize="20" Margin="45,2, 0, -5"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <TextBox Name="Screen" FontFamily="Segoe UI Semibold" FontSize="28" IsReadOnly="True" Background="Transparent" BorderThickness="0" HorizontalAlignment="Right"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="MC" Foreground="#b8b8b8" Style="{StaticResource btnStyle3}" />
+                    <Button Content="MR" Foreground="#b8b8b8" Style="{StaticResource btnStyle3}" />
+                    <Button Content="M+" Style="{StaticResource btnStyle3}" />
+                    <Button Content="M-" Style="{StaticResource btnStyle3}" />
+                    <Button Content="MS" Style="{StaticResource btnStyle3}" />
+                    <Button Content="M" Foreground="#b8b8b8" Style="{StaticResource btnStyle3}" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Click="btn_Click" Name="Perc" Content="%" Style="{StaticResource btnStyle1}"/>
+                    <Button Click="btn_Click" Name="CE" Content="CE" Style="{StaticResource btnStyle1}"/>
+                    <Button Click="btn_Click" Name="C" Content="C" Style="{StaticResource btnStyle1}"/>
+                    <Button Click="btn_Click" Name="Backspace" Content="&lt;-" Style="{StaticResource btnStyle1}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Click="btn_Click" Name="Reverse" Content="1/x" Style="{StaticResource btnStyle1}"/>
+                    <Button Click="btn_Click" Name="Squared" Content="x^2" Style="{StaticResource btnStyle1}"/>
+                    <Button Click="btn_Click" Name="Sqrt" Content="√x" Style="{StaticResource btnStyle1}"/>
+                    <Button Click="btn_Click" Name="Divide" Content="÷" FontSize="25" FontFamily="Segoe UI Light" Style="{StaticResource btnStyle1}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Click="btn_Click" Name="Seven" Content="7" Style="{StaticResource btnStyle2}"/>
+                    <Button Click="btn_Click" Name="Eight" Content="8" Style="{StaticResource btnStyle2}"/>
+                    <Button Click="btn_Click" Name="Nine" Content="9" Style="{StaticResource btnStyle2}"/>
+                    <Button Click="btn_Click" Name="Multiply" Content="×" FontSize="25" FontFamily="Segoe UI Light" Style="{StaticResource btnStyle1}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Click="btn_Click" Name="Four" Content="4" Style="{StaticResource btnStyle2}"/>
+                    <Button Click="btn_Click" Name="Five" Content="5" Style="{StaticResource btnStyle2}"/>
+                    <Button Click="btn_Click" Name="Six" Content="6" Style="{StaticResource btnStyle2}"/>
+                    <Button Click="btn_Click" Name="Minus" Content="-" FontSize="25" FontFamily="Segoe UI Light" Style="{StaticResource btnStyle1}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Click="btn_Click" Name="One" Content="1" Style="{StaticResource btnStyle2}"/>
+                    <Button Click="btn_Click" Name="Two" Content="2" Style="{StaticResource btnStyle2}"/>
+                    <Button Click="btn_Click" Name="Three" Content="3" Style="{StaticResource btnStyle2}"/>
+                    <Button Click="btn_Click" Name="Plus" Content="+" FontSize="25" FontFamily="Segoe UI Light" Style="{StaticResource btnStyle1}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Click="btn_Click" Name="PlusMinus" Content="+/-" FontFamily="Segoe UI Semilight" Style="{StaticResource btnStyle2}"/>
+                    <Button Click="btn_Click" Name="Zero" Content="0" Style="{StaticResource btnStyle2}"/>
+                    <Button Click="btn_Click" Name="Dot" Content="." Style="{StaticResource btnStyle2}"/>
+                    <Button Click="btn_Click" Name="Equal" Content="=" Background="#8abae0" FontSize="25" FontFamily="Segoe UI Light" Style="{StaticResource btnStyle1}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
